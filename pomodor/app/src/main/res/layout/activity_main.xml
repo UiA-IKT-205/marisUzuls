@@ -12,7 +12,7 @@
         android:layout_height="36dp"
         android:layout_marginStart="80dp"
         android:layout_marginBottom="308dp"
-        android:text="@string/time1text"
+        android:text="@string/buttonTime30text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -22,7 +22,7 @@
         android:layout_height="36dp"
         android:layout_marginStart="80dp"
         android:layout_marginBottom="244dp"
-        android:text="@string/time2text"
+        android:text="@string/buttonTime60text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button120Min"
         app:layout_constraintHorizontal_bias="0.0"
@@ -34,7 +34,7 @@
         android:layout_height="36dp"
         android:layout_marginEnd="80dp"
         android:layout_marginBottom="308dp"
-        android:text="@string/time3text"
+        android:text="@string/buttonTime90text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -46,7 +46,7 @@
         android:layout_height="35dp"
         android:layout_marginEnd="80dp"
         android:layout_marginBottom="244dp"
-        android:text="@string/time4text"
+        android:text="@string/buttonTime120text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
