@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/time1"
+        android:id="@+id/button30Min"
         android:layout_width="102dp"
         android:layout_height="36dp"
         android:layout_marginStart="80dp"
@@ -17,19 +17,19 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/time2"
+        android:id="@+id/button60Min"
         android:layout_width="102dp"
         android:layout_height="36dp"
         android:layout_marginStart="80dp"
         android:layout_marginBottom="244dp"
         android:text="@string/time2text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/time4"
+        app:layout_constraintEnd_toStartOf="@+id/button120Min"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/time3"
+        android:id="@+id/button90Min"
         android:layout_width="102dp"
         android:layout_height="36dp"
         android:layout_marginEnd="80dp"
@@ -38,10 +38,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/time1" />
+        app:layout_constraintStart_toEndOf="@+id/button30Min" />
 
     <Button
-        android:id="@+id/time4"
+        android:id="@+id/button120Min"
         android:layout_width="102dp"
         android:layout_height="35dp"
         android:layout_marginEnd="80dp"

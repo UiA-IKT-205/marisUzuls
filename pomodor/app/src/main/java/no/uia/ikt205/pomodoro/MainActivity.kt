@@ -10,32 +10,32 @@ import android.widget.Toast
 import no.uia.ikt205.pomodoro.util.millisecondsToDescriptiveTime
 
 lateinit var timer: CountDownTimer
-var timerOn = 0;
+var timerOn = false;
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
     lateinit var startButton:Button
 
-    lateinit var b1:Button
-    lateinit var b2:Button
-    lateinit var b3:Button
-    lateinit var b4:Button
+    lateinit var button30:Button
+    lateinit var button60:Button
+    lateinit var button90:Button
+    lateinit var button120:Button
 
     lateinit var coutdownDisplay:TextView
 
     var timeToCountDownInMs = 0L
+    var minute = 60000L
     val timeTicks = 1000L
 
 
-    fun checker(){
+    fun checkIfTimerRunning(){
 
-        if (timerOn==1){
+        if (timerOn==true){
             timer.cancel()
-            timerOn=0;
+            timerOn=false;
         }
     }
-
 
     fun startCountDown(v: View){
 
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        timerOn=1
+        timerOn=true
         timer.start()
 
     }
@@ -64,45 +64,45 @@ class MainActivity : AppCompatActivity() {
 
        startButton = findViewById<Button>(R.id.startCountdownButton)
 
-        b1 = findViewById<Button>(R.id.time1)
-        b2 = findViewById<Button>(R.id.time2)
-        b3 = findViewById<Button>(R.id.time3)
-        b4 = findViewById<Button>(R.id.time4)
+        button30 = findViewById<Button>(R.id.button30Min)
+        button60 = findViewById<Button>(R.id.button60Min)
+        button90 = findViewById<Button>(R.id.button90Min)
+        button120 = findViewById<Button>(R.id.button120Min)
 
-        b1.setOnClickListener(){
-            checker()
-            timeToCountDownInMs = 1800000L
-            updateCountDownDisplay(timeToCountDownInMs)
-        }
-        b2.setOnClickListener(){
-            checker()
-            timeToCountDownInMs = 3600000L
-            updateCountDownDisplay(timeToCountDownInMs)
-        }
-        b3.setOnClickListener(){
-            checker()
-            timeToCountDownInMs = 5400000L
-            updateCountDownDisplay(timeToCountDownInMs)
-        }
-        b4.setOnClickListener(){
-            checker()
-            timeToCountDownInMs = 7200000L
-            updateCountDownDisplay(timeToCountDownInMs)
+        button30.setOnClickListener(this)
+        button60.setOnClickListener(this)
+        button90.setOnClickListener(this)
+        button120.setOnClickListener(this)
+
+        startButton.setOnClickListener(){
+            startCountDown(it)
         }
 
-       startButton.setOnClickListener(){
+        coutdownDisplay = findViewById<TextView>(R.id.countDownView)
+    }
 
-           startCountDown(it)
-       }
-
-       coutdownDisplay = findViewById<TextView>(R.id.countDownView)
-
+    override fun onClick(view:View) {
+        checkIfTimerRunning()
+        when (view.id) {
+            R.id.button30Min -> {
+                timeToCountDownInMs = 30*minute
+            }
+            R.id.button60Min -> {
+                timeToCountDownInMs = 60*minute
+            }
+            R.id.button90Min -> {
+                timeToCountDownInMs = 90*minute
+            }
+            R.id.button120Min -> {
+                timeToCountDownInMs = 120*minute
+            }
+        }
+        updateCountDownDisplay(timeToCountDownInMs)
     }
 
 
 
-
-    fun updateCountDownDisplay(timeInMs:Long){
+    fun updateCountDownDisplay(timeInMs: Long){
         coutdownDisplay.text = millisecondsToDescriptiveTime(timeInMs)
     }
 
