@@ -104,7 +104,7 @@
         android:layout_centerVertical="true"
         android:layout_marginTop="16dp"
         android:max="300"
-        android:min="30"
+        android:min="15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.422"
         app:layout_constraintStart_toStartOf="parent"
