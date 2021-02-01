@@ -2,8 +2,17 @@
     <string name="app_name">Pomodoro</string>
     <string name="default_time_display">00:00:00</string>
     <string name="startButtonText">Start</string>
-    <string name="buttonTime30text">30 min</string>
-    <string name="buttonTime60text">60 min</string>
-    <string name="buttonTime90text">90 min</string>
-    <string name="buttonTime120text">120 min</string>
+    <string name="stopButtonText">Stop</string>
+    <string name="seekBarMinText">Min</string>
+    <string name="seekBarMaxText">Max</string>
+    <string name="seekBarWorkTitle">Select current work time:</string>
+    <string name="seekBarPauseTitle">Select current pause time:</string>
+    <string name="currentActivityTitle">Set up</string>
+    <string name="seekBarCurrentWorkTimeSelected">" "</string>
+    <string name="seekBarCurrentPauseTimeSelected">" "</string>
+    <string name="activityRepetitionCount">Select repetitions:</string>
+    <string name="pomodoroRepetitionsTitle">Repetitions:</string>
+    <string name="_0">" "</string>
+
+
 </resources>
