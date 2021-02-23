@@ -10,7 +10,7 @@
 
         <Button
             android:id = "@+id/FullTonePianoKeyBtn"
-            android:layout_width="60dp"
+            android:layout_width="50dp"
             android:layout_height="250dp"
             android:backgroundTint="@color/white"
             android:background="@drawable/pianokeyshape"

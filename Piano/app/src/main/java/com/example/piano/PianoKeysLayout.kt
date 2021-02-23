@@ -15,7 +15,7 @@ class PianoKeysLayout : Fragment() {
 
     //Keeping the names simple
     //Fulltone
-    private val pianoBlackKey = listOf("C#","D#","F#","G#","A#","C2#","D2#","F2#","G2#","A2#")
+    private val pianoBlackKey = listOf("C#","D#","E#","F#","G#","A#","B#","C2#","D2#","E2#","F2#","G2#","A2#")
     //Halftone
     private val pianoWhiteKey = listOf("C","D","E","F","G","A","B","C2","D2","E2","F2","G2","A2","B2")
 
