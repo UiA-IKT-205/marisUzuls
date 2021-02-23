@@ -6,25 +6,197 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <TextView
         android:id="@+id/countDownView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="68dp"
         android:text="@string/default_time_display"
+        app:layout_constraintBottom_toBottomOf="@+id/pomodoroRepetitionsTitle"
+        app:layout_constraintStart_toEndOf="@+id/pomodoroRepetitionsTitle"
+        app:layout_constraintTop_toBottomOf="@+id/currentActivityTitle"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/currentActivityTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/currentActivityTitle"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.057" />
 
     <Button
         android:id="@+id/startCountdownButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="@string/startButtonText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pomodoroTimerRepetitionInput"
+        app:layout_constraintVertical_bias="0.494" />
+
+    <Button
+        android:id="@+id/stopCountdownButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/stopButtonText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pomodoroTimerRepetitionInput"
+        app:layout_constraintVertical_bias="0.494" />
+
+    <TextView
+        android:id="@+id/seekBarCurrentWorkTimeSelected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/seekBarCurrentWorkTimeSelected"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBarWorkTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toEndOf="@+id/seekBarWorkTitle" />
+
+    <TextView
+        android:id="@+id/seekBarCurrentPauseTimeSelected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/seekBarCurrentPauseTimeSelected"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBarPauseTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toEndOf="@+id/seekBarPauseTitle" />
+
+    <TextView
+        android:id="@+id/seekBarWorkTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="92dp"
+        android:text="@string/seekBarWorkTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/countDownView" />
+
+    <TextView
+        android:id="@+id/seekBarPauseTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/seekBarPauseTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pomodoroWorkSeekBar" />
+
+    <SeekBar
+        android:id="@+id/pomodoroWorkSeekBar"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="16dp"
+        android:max="300"
+        android:min="15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.422"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarWorkTitle" />
+
+    <SeekBar
+        android:id="@+id/pomodoroPauseSeekBar"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="16dp"
+        android:max="30"
+        android:min="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.422"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarPauseTitle" />
+
+    <TextView
+        android:id="@+id/seekBarMinTextValueWork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/seekBarMinText"
+        app:layout_constraintBottom_toBottomOf="@+id/pomodoroWorkSeekBar"
+        app:layout_constraintEnd_toStartOf="@+id/pomodoroWorkSeekBar" />
+
+    <TextView
+        android:id="@+id/seekBarMaxTextValueWork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/seekBarMaxText"
+        app:layout_constraintBottom_toBottomOf="@+id/pomodoroWorkSeekBar"
+        app:layout_constraintStart_toEndOf="@+id/pomodoroWorkSeekBar" />
+
+    <TextView
+        android:id="@+id/seekBarMinTextValuePause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/seekBarMinText"
+        app:layout_constraintBottom_toBottomOf="@+id/pomodoroPauseSeekBar"
+        app:layout_constraintEnd_toStartOf="@+id/pomodoroPauseSeekBar" />
+
+    <TextView
+        android:id="@+id/seekBarMaxTextValuePause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/seekBarMaxText"
+        app:layout_constraintBottom_toBottomOf="@+id/pomodoroPauseSeekBar"
+        app:layout_constraintStart_toEndOf="@+id/pomodoroPauseSeekBar" />
+
+
+    <TextView
+        android:id="@+id/activityRepetitionCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="44dp"
+        android:text="@string/activityRepetitionCount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pomodoroPauseSeekBar" />
+
+    <EditText
+        android:id="@+id/pomodoroTimerRepetitionInput"
+        android:layout_width="77dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="16dp"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activityRepetitionCount" />
+
+
+    <TextView
+        android:id="@+id/valueRepetitions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/_0"
+        app:layout_constraintBottom_toBottomOf="@+id/pomodoroRepetitionsTitle"
+        app:layout_constraintStart_toEndOf="@+id/pomodoroRepetitionsTitle" />
+
+    <TextView
+        android:id="@+id/pomodoroRepetitionsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:text="@string/pomodoroRepetitionsTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.133"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentActivityTitle" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
