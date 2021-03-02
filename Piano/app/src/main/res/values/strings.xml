@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">Piano</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">MyPiano</string>
+    <string name="note">No notes</string>
+    <string name="save">Save</string>
+    <string name="hintSaveBtn">Choose a name for note file.</string>
+    <string name="recordStart">Start</string>
+    <string name="recordStop">Stop</string>
+
 </resources>
