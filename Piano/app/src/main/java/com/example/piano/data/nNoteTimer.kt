@@ -9,9 +9,8 @@ data class nNoteTimer(val value:String,val delta:Long, val start:Long, val end: 
         var durationMiliseconds = end-start
         var durationSeconds =  (durationMiliseconds.toDouble())/1000
         var songNowTime = (delta.toDouble())/1000
-        var returnString = "At song time $songNowTime seconds, $value is pressed for $durationMiliseconds miliseconds, or $durationSeconds seconds"
 
-        return returnString
+        return "At song time $songNowTime seconds, $value is pressed for $durationMiliseconds miliseconds, or $durationSeconds seconds"
     }
 }
 
