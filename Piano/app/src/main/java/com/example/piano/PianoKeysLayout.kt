@@ -1,9 +1,11 @@
 package com.example.piano
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import com.example.piano.data.nNoteTimer
 import com.example.piano.data.trackDurationTimer
@@ -22,6 +24,8 @@ class PianoKeysLayout : Fragment() {
     private val pianoBlackKey = listOf("C#", "D#", "E#", "F#", "G#", "A#", "B#", "C2#", "D2#", "E2#", "F2#", "G2#", "A2#")
     //Halftone
     private val pianoWhiteKey = listOf("C", "D", "E", "F", "G", "A", "B", "C2", "D2", "E2", "F2", "G2", "A2", "B2")
+
+    var onTuneSave:((file: Uri)-> Unit)? = null
 
 
     override fun onCreateView(
@@ -152,6 +156,11 @@ class PianoKeysLayout : Fragment() {
                             writer.write("${it.toString()}\n")
                         }
                         writer.write(songEndText)
+                        val content:String = noteList.map{
+                            it.toString()}.reduce{
+                                acc, s -> acc + s + "\n"}
+
+                        tuneSaveToCloud(fileName,content)
                         noteList = mutableListOf() // new fresh list
                         println("Recording saved, new track can be written")
                         view.noteFileNameEditBox.text.clear()
@@ -161,5 +170,20 @@ class PianoKeysLayout : Fragment() {
         }
 
         return view
+    }
+
+    private fun tuneSaveToCloud (tunename:String, content:String) {
+
+        val path = this.activity?.getExternalFilesDir(null)
+
+        if (path != null) {
+
+            var tuneFile = File(path, tunename)
+            FileOutputStream(tuneFile, true).bufferedWriter().use { writer ->
+                writer.write(content)
+            }
+
+            this.onTuneSave?.invoke(tuneFile.toUri())
+        }
     }
 }
