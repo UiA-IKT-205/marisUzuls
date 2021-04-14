@@ -19,4 +19,4 @@ fra databasen og vise de på relevante lister som fullførte
 
 
 App Distribution lenke: https://appdistribution.firebase.dev/i/45c2816f038b2fda
-Har også sendte en release versjon til din epost, usikker om det ble gjort korrekt, så heller kan lenke ovenfor brukes for App distribuering 
+Har også sendt en release versjon til din epost, usikker om det ble gjort korrekt, så heller kan lenke ovenfor brukes for App distribuering 
