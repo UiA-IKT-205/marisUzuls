@@ -1,38 +1,103 @@
 package no.uia.ikt205.mytodolistproject
 
+import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
+import android.util.Log
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
+import no.uia.ikt205.mytodolistproject.databinding.ActivityMainBinding
+import no.uia.ikt205.mytodolistproject.listOfLists.managers.ListManager
+import no.uia.ikt205.mytodolistproject.listOfLists.anOpenObjectiveActivity
+import no.uia.ikt205.mytodolistproject.listOfLists.dataClasses.listOfObjectiveLists
+import no.uia.ikt205.mytodolistproject.listOfLists.adapters.listOfListsAdapter
+
+
+val projectTag:String = "myToDoListProject"
+
+class listHolder{
+
+    companion object{
+        var listChosen:listOfObjectiveLists? = null
+    }
+}
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var anonymousAuth: FirebaseAuth
+    private val db = FirebaseFirestore.getInstance()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(findViewById(R.id.toolbar))
+        binding = ActivityMainBinding.inflate(this.layoutInflater)
+        setContentView(binding.root)
 
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+        binding.overviewOfLists.layoutManager = LinearLayoutManager(this)
+        binding.overviewOfLists.adapter = listOfListsAdapter(emptyList<listOfObjectiveLists>(), this::onListClick)
+
+        anonymousAuth = Firebase.auth
+        logInSuccessCheck()
+
+
+        ListManager.instanceListManager.currentList = {
+            (binding.overviewOfLists.adapter as listOfListsAdapter).updateToDoLists(it)
         }
-    }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
+        ListManager.instanceListManager.listDataLoad(this)
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
+
+        binding.addNewListBtn.setOnClickListener{
+
+            val creationNotiffier = AlertDialog.Builder(this)
+            val listNameInput = EditText(this)
+
+            creationNotiffier.setMessage("Add new to do list")
+            creationNotiffier.setTitle("Add a new objective to a list")
+            creationNotiffier.setView(listNameInput)
+            creationNotiffier.setPositiveButton("Add"){dialog, i ->
+
+                var listValueName = listNameInput.text.toString()
+
+                if(listValueName.isNotEmpty()) {
+                    val list = hashMapOf(
+                        "List name" to listValueName
+                    )
+
+                    db.collection("ToDoLists").document(listValueName).set(list)
+
+                    Toast.makeText(this, "list saved", Toast.LENGTH_LONG).show()
+                    ListManager.instanceListManager.listDataLoad(this)
+                }
+            }
+            creationNotiffier.show()
+
         }
+
+
     }
+
+    private fun logInSuccessCheck(){
+        anonymousAuth.signInAnonymously().addOnSuccessListener { Log.d(projectTag, "success") }
+    }
+
+
+
+
+    private fun onListClick(listOfLists: listOfObjectiveLists):Unit{
+        val intent = Intent(this,anOpenObjectiveActivity::class.java)
+        listHolder.listChosen = listOfLists
+        startActivity(intent)
+    }
+
+
 }
+

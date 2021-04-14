@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "41500941067",
+    "firebase_url": "https://mytodolist-de10c-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "mytodolist-de10c",
+    "storage_bucket": "mytodolist-de10c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41500941067:android:d86abc5b1ef63f3340600e",
+        "android_client_info": {
+          "package_name": "no.uia.ikt205.mytodolistproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "41500941067-tbi1bsglhlbnmrgsn5rq7hb177cr1d37.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyGE4bMHgQTmuJ5aPrn-TuZLFQAsBO6s8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "41500941067-tbi1bsglhlbnmrgsn5rq7hb177cr1d37.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

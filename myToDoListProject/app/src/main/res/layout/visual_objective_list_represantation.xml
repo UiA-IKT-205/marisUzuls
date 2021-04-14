@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardForLists"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:contentPadding="24dp"
+    app:cardCornerRadius="7dp"
+    android:backgroundTint="#C2BFCA"
+    android:layout_margin="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/listObjectiveStatusCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="105dp"
+            tools:layout_editor_absoluteY="645dp" />
+
+        <TextView
+            android:id="@+id/objectiveName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:layout_toEndOf="@+id/listObjectiveStatusCheckbox"
+            tools:text="Name for a new objective"
+            android:textSize="16sp"/>
+
+        <ImageButton
+            android:id="@+id/objectiveDeleteBtn"
+            android:layout_width="27dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_baseline_close_24" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/objectiveListTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"/>
+
+</androidx.cardview.widget.CardView>

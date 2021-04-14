@@ -7,6 +7,9 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="save">Save</string>
+    <string name="nameForNewList">Name for a new list</string>
+    <string name="appName">My To Do List</string>
+    <string name="appUnderTitle">Overview of current tasks</string>
+    <string name="add_new_list">Add new list</string>
 </resources>
