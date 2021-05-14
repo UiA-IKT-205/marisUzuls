@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="no.uia.ikt205.tictactoemu.GameActivityRemake">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/r11"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:text="" />
+
+            <Button
+                android:id="@+id/r12"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:text="" />
+
+            <Button
+                android:id="@+id/r13"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/r21"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:text="" />
+
+            <Button
+                android:id="@+id/r22"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:text="" />
+
+            <Button
+                android:id="@+id/r23"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/r31"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:text="" />
+
+            <Button
+                android:id="@+id/r32"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:text="" />
+
+            <Button
+                android:id="@+id/r33"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:text="" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/playersTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Current players:"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.218"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/playerNameOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Player1"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playersTitle" />
+
+    <TextView
+        android:id="@+id/playerNameTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Open slot"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/playerNameOne"
+        app:layout_constraintTop_toBottomOf="@+id/playerNameOne" />
+
+    <TextView
+        android:id="@+id/gameKeyTitle"
+        android:layout_width="75dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="76dp"
+        android:text="Game Id:"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.315"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/gameKeyVisual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Game id placeholder"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/gameKeyTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toEndOf="@+id/gameKeyTitle"
+        app:layout_constraintTop_toTopOf="@+id/gameKeyTitle"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonUpdate"
+        android:layout_width="126dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Update Players"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
